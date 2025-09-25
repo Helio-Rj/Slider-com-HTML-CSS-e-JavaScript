@@ -1,0 +1,202 @@
+/* INÍCIO: Reset e layout do body */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FIM: Reset e layout do body */
+
+/* INÍCIO: Variáveis globais */
+:root {
+    --primary-color: #3498db;
+    --background-color: #f4f4f4;
+}
+
+/* FIM: Variáveis globais */
+
+/* INÍCIO: Responsividade geral */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+@media (max-width: 900px) {
+    .slider {
+        width: 100vw;
+        height: 40vw;
+        min-height: 200px;
+        max-width: 100%;
+    }
+    .slide img {
+        width: 100vw;
+        height: 40vw;
+        object-fit: cover;
+        min-height: 200px;
+        max-width: 100%;
+    }
+    .navigation-manual,
+    .navigation-auto {
+        width: 100vw;
+        min-width: 200px;
+        max-width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    body {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .slider {
+        height: 200px;
+    }
+    .slide img {
+        height: 200px;
+    }
+    .navigation-manual,
+    .navigation-auto {
+        margin-top: 0;
+    }
+}
+/* FIM: Responsividade geral */
+
+/* INÍCIO: Slider principal */
+.slider {
+    margin: 0 auto;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+}
+
+/* FIM: Slider principal */
+
+/* INÍCIO: Slides */
+.slides {
+    display: flex;
+    width: 400%;
+    height: 400px;
+    display: flex;
+}
+
+/* FIM: Slides */
+
+/* INÍCIO: Input dos slides */
+.slides input {
+    display: none;
+}
+
+/* FIM: Input dos slides */
+
+/* INÍCIO: Slide individual */
+.slide {
+    width: 25%;
+    position: relative;
+    transition: 3s;
+}
+
+.slide img {
+    width: 800px;
+}
+
+/* FIM: Slide individual */
+
+/* INÍCIO: Navegação manual */
+.navigation-manual {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid var(--background-color);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, border 0.3s;
+    cursor: pointer;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+/* FIM: Navegação manual */
+
+/* INÍCIO: Controle dos slides via radio */
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -25%;
+}
+
+#radio3:checked~.first {
+    margin-left: -50%;
+}
+
+#radio4:checked~.first {
+    margin-left: -75%;
+}
+
+/* FIM: Controle dos slides via radio */
+
+/* INÍCIO: Navegação automática */
+.navigation-auto div {
+    border: 2px solid var(--primary-color);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, border 0.3s;
+}
+
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 360px;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+}
+
+/* FIM: Navegação automática */
+
+
+/* INÍCIO: Slides */
+
+.radio1:checked~.navigation-auto .auto-btn1 {
+    background-color: var(--background-color);
+}
+
+.radio2:checked~.navigation-auto .auto-btn2 {
+    background-color: var(--background-color);
+
+}
+
+.radio3:checked~.navigation-auto .auto-btn3 {
+    background-color: var(--background-color);
+
+}
+
+.radio4:checked~.navigation-auto .auto-btn4 {
+    background-color: var(--background-color);
+}
+
+/* FIM: Controle dos slides via radio */
+
